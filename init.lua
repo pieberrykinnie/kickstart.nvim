@@ -704,6 +704,15 @@ do
     -- But for many setups, the LSP (`ts_ls`) will work just fine
     -- ts_ls = {},
 
+    vtsls = {
+      on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+      end,
+    },
+    biome = {},
+    prettierd = {},
+
     stylua = {}, -- Used to format Lua code
 
     -- Special Lua Config, as recommended by neovim help docs
@@ -805,7 +814,10 @@ do
       -- python = { "isort", "black" },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
-      -- javascript = { "prettierd", "prettier", stop_after_first = true },
+      javascript = { "biome", "prettierd", stop_after_first = true },
+      typescript = { "biome", "prettierd", stop_after_first = true },
+      javascriptreact = { "biome", "prettierd", stop_after_first = true },
+      typescriptreact = { "biome", "prettierd", stop_after_first = true },
     },
   }
 
