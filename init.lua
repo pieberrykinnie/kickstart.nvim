@@ -171,6 +171,11 @@ do
   -- instead raise a dialog asking if you wish to save the current file(s)
   -- See `:help 'confirm'`
   vim.o.confirm = true
+
+  vim.opt.expandtab = true -- Convert tabs to spaces
+  vim.opt.tabstop = 2 -- Width of a literal tab character
+  vim.opt.softtabstop = 2 -- Spaces inserted/deleted when pressing Tab/Backspace
+  vim.opt.shiftwidth = 2 -- Spaces used for auto-indentation (<<, >>, etc.)
 end
 
 -- ============================================================
