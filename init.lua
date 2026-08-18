@@ -886,6 +886,7 @@ do
       css = { 'prettierd' },
       scss = { 'prettierd' },
       less = { 'prettierd' },
+      markdown = { 'prettierd' },
     },
   }
 
