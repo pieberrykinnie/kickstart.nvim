@@ -729,6 +729,13 @@ do
       end,
     },
 
+    cssls = {
+      on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+      end,
+    },
+
     stylua = {}, -- Used to format Lua code
 
     -- Special Lua Config, as recommended by neovim help docs
@@ -835,6 +842,9 @@ do
       javascriptreact = { 'biome', 'prettierd', stop_after_first = true },
       typescriptreact = { 'biome', 'prettierd', stop_after_first = true },
       html = { 'prettierd' },
+      css = { 'prettierd' },
+      scss = { 'prettierd' },
+      less = { 'prettierd' },
     },
   }
 
