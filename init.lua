@@ -713,6 +713,22 @@ do
     biome = {},
     prettierd = {},
 
+    html = {
+      init_options = {
+        -- Disable built-in formatter so prettierd / biome handles formatting
+        provideFormatter = false,
+        embeddedLanguages = {
+          css = true,
+          javascript = true,
+        },
+        configurationSection = { 'html', 'css', 'javascript' },
+      },
+      on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+      end,
+    },
+
     stylua = {}, -- Used to format Lua code
 
     -- Special Lua Config, as recommended by neovim help docs
@@ -814,10 +830,11 @@ do
       -- python = { "isort", "black" },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
-      javascript = { "biome", "prettierd", stop_after_first = true },
-      typescript = { "biome", "prettierd", stop_after_first = true },
-      javascriptreact = { "biome", "prettierd", stop_after_first = true },
-      typescriptreact = { "biome", "prettierd", stop_after_first = true },
+      javascript = { 'biome', 'prettierd', stop_after_first = true },
+      typescript = { 'biome', 'prettierd', stop_after_first = true },
+      javascriptreact = { 'biome', 'prettierd', stop_after_first = true },
+      typescriptreact = { 'biome', 'prettierd', stop_after_first = true },
+      html = { 'prettierd' },
     },
   }
 
