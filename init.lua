@@ -1079,6 +1079,9 @@ do
   -- require 'custom.plugins.colorscheme'
   -- require 'custom.plugins.ui'
   -- require 'custom.plugins.git'
+  --
+  --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
+  require 'custom.plugins.vimtex'
 end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
