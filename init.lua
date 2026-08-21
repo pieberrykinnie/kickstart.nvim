@@ -743,7 +743,10 @@ do
 
     texlab = {},
 
-    powershell_es = {},
+    powershell_es = {
+      bundle_path = vim.fs.joinpath(vim.fn.stdpath 'data', 'mason', 'packages', 'powershell-editor-services'),
+      shell = 'powershell.exe',
+    },
 
     stylua = {}, -- Used to format Lua code
 
@@ -793,6 +796,14 @@ do
   -- Translates between nvim-lspconfig server names and mason.nvim package names (e.g. lua_ls <-> lua-language-server)
   require('mason-lspconfig').setup {
     automatic_enable = false, -- Change this to true if you want to automatically enable servers that are installed manually (e.g. via :Mason / :MasonInstall)
+    handlers = {
+      function(server_name)
+        local server = servers[server_name] or {}
+        -- This passes the bundle_path and shell configs defined above to lspconfig
+        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+        require('lspconfig')[server_name].setup(server)
+      end,
+    },
   }
 
   -- Ensure the servers and tools above are installed
