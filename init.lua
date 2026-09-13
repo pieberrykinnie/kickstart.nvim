@@ -783,6 +783,13 @@ do
     },
 
     texlab = {},
+    tinymist = {
+      settings = {
+        formatterMode = 'typstyle',
+        exportPdf = 'onSave', -- 'never' | 'onSave' | 'onType'
+        semanticTokens = 'enable',
+      },
+    },
 
     powershell_es = {
       bundle_path = vim.fs.joinpath(vim.fn.stdpath 'data', 'mason', 'packages', 'powershell-editor-services'),
