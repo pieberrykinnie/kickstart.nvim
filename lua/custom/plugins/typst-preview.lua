@@ -5,12 +5,7 @@ vim.pack.add {
 }
 
 require('typst-preview').setup {
-  -- Setting this to 'auto' or 'always' enables dark mode inversion in the browser
   invert_colors = 'never',
-
-  dependencies_bin = {
-    ['tinymist'] = 'tinymist',
-  },
 }
 
 -- Buffer-local keymaps scoped to Typst files
